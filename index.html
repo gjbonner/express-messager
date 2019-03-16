@@ -76,7 +76,7 @@
           }
         });
         socket.on('new message', function(data){
-              $chat.append('<div class="well">' + data.msg + '</div>');
+              $chat.append('<div class="well"><strong>' + data.user +': </strong>' + data.msg + '</div>');
         });
 
         $userForm.submit(function(e){
@@ -95,8 +95,9 @@
           let html = '';
           //add users to online users
           for(let i = 0; i < data.length; i++){
-            html += '<li class="list-group-item"'
+            html += '<li class="list-group-item">' + data[i] + '</li>';
           }
+          $users.append(html);
         });
       });
     </script>

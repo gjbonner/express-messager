@@ -28,7 +28,7 @@ io.sockets.on('connection', function(socket){
 
   //Send message
   socket.on('send message', function(data){
-    io.sockets.emit('new message', {msg: data});
+    io.sockets.emit('new message', {msg: data, user: socket.username});
   });
 
   //New user
@@ -40,7 +40,7 @@ io.sockets.on('connection', function(socket){
   });
 
   function updateUsernames(){
-    io.sockets.emit('get usernames', usernames);
+    io.sockets.emit('get users', users);
   }
 
 });
