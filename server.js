@@ -21,7 +21,6 @@ io.sockets.on('connection', function(socket){
   //Disconnect
   socket.on('disconnect', function(data){
     users.splice(users.indexOf(socket.username),1);
-    updateUsernames();
     connections.splice(connections.indexOf(socket),1);
     updateUsernames();
     console.log('Disconnected: %s sockets connected', connections.length);
